@@ -7,19 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @PostMapping("/user")
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        return ResponseEntity.ok(userService.save(user));
-    }
-
-    @GetMapping("/login")
-    public ResponseEntity<User> login(@RequestBody UserLoginReqDTO reqDTO) throws Exception {
-        return ResponseEntity.ok(userService.login(reqDTO));
+    @GetMapping("/user")
+    public ResponseEntity<List<User>> getAllUsers(){
+        return ResponseEntity.ok(userService.findAll());
     }
 }

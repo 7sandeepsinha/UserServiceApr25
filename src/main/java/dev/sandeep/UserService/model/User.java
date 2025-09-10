@@ -10,7 +10,7 @@ import java.util.List;
 @Entity(name = "Auth-User")
 public class User extends BaseModel{
     private String name;
-    private String email;
+    private String email; // unique identifier and username equivalent
     private String password;
     @ManyToMany
     private List<Role> roles;
